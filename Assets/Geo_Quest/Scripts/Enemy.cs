@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rigidbody2D; //The rigidbody that will move the bullet 
     public float minSpeed = 1f;           //Speed at which the bullet moves 
     public float maxSpeed = 4f;           //Speed at which the bullet moves 
-
+    private int health = 3;
     //Flag and Timer 
     public float deathTime = 100f;   //How long before the bullet dies 
     public bool playerBullet = true; //Is the bullet used by player or enemy 
@@ -33,8 +33,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
 
-        _gameController = GameObject.Find(gameControllerComponent).GetComponent<GameController>();
-        StartCoroutine(Death());
+        //_gameController = GameObject.Find(gameControllerComponent).GetComponent<GameController>();
+        //StartCoroutine(Death());
     }
 
     public void SetSpeed(Vector3 newSpeed)
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == bulletTag)
         {
             //Updates the Score 
-            _gameController.UpdateScore();
+            //_gameController.UpdateScore();
             //Destorys the bullet
             Destroy(collision.gameObject);
             //Destorys the enemy 
@@ -69,6 +69,14 @@ public class Enemy : MonoBehaviour
         else if(collision.gameObject.tag == boundsTag)
         {
             Destroy(gameObject);
+        }
+
+        if(collision.gameObject.tag == "Bullet")
+        {
+            health--;
+            if(health <= 0) {
+                Destroy(gameObject);
+            }
         }
     }
 }
