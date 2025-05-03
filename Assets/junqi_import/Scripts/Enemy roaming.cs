@@ -22,8 +22,9 @@ public class Enemyroaming : MonoBehaviour
         { 
             patrolindex++;
 
-            if (patrolindex < patrolpoints.Length)
+            if (patrolindex >= patrolpoints.Length)
             {
+                patrolindex = 0;
 
             }
 
