@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
 
     public GameObject Character;
-    public float speed;
+    public float speed = 1;
     //==================================================================================================================
     // Base Method  
     //==================================================================================================================
@@ -78,7 +78,8 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             health--;
-            if(health <= 0) {
+            if (health <= 0) 
+            {
                 Destroy(gameObject);
             }
         }

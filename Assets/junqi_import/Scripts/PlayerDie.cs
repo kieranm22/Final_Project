@@ -4,15 +4,15 @@ using UnityEngine;
 public class PlayerDie : MonoBehaviour
 {
     public GameObject endPanel;
-    private string Enemy = "Enemy";
+    private string Enemy = "Death";
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-
-        if (collision.gameObject.tag ==Enemy)
+        Debug.Log("touched");
+        if (collision.gameObject.tag == Enemy)
         {
+            Debug.Log("die");
             endPanel.SetActive(true);
-            gameObject .SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

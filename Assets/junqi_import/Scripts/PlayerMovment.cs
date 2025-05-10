@@ -15,22 +15,15 @@ public class PlayerMovment : MonoBehaviour
     void Start()
     {
         _rigRigidbody2D = GetComponent<Rigidbody2D>();
-        
+        //_playerDialogue = GetComponent<PlayerDialogue>();    
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_playerDialogue.IsSpeaking())
-        {
-            _xVelocity = 0;
-            _yVelocity = 0;
-        }
-        else
-        {
+
             _xVelocity = Input.GetAxis(Structs.Input.horizontal);
             _yVelocity = Input.GetAxis(Structs.Input.vertical);
-        }
 
         
         _rigRigidbody2D.velocity = new Vector2(_xVelocity, _yVelocity) * speed; 
