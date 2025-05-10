@@ -15,7 +15,7 @@ public class PlayerMovment : MonoBehaviour
     void Start()
     {
         _rigRigidbody2D = GetComponent<Rigidbody2D>();
-        _playerDialogue = GetComponent<PlayerDialogue>();    
+        
     }
 
     // Update is called once per frame
